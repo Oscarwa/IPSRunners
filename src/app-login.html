@@ -1,0 +1,68 @@
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="./shared-styles.html">
+<dom-module id="app-login">
+    <template>
+        <style include="shared-styles">
+             :host {
+                display: block;
+                padding: 10px;
+            }
+            
+            .loginCard {
+                background:white;
+                text-align: center;
+                align-content: center;
+            }
+            
+        </style>
+        <div class="card loginCard signin">
+            <h3>Proyectos</h3>
+            <br>
+            <login-fire id="authElement" mini horizontal email-password  google app-name="ipsrunners" user="{{user}}" signed-in="{{signedIn}}"></login-fire>
+        </div>
+    </template>
+    <script>
+        class AppLogin extends Polymer.Element {
+            static get is() {
+                return 'app-login';
+            }
+            static get config() {
+                return {
+                    properties: {
+                        user: {
+                            type: Object,
+                        },
+                        statusKnown: {
+                            type: Object
+                        },
+                        signedIn:{
+                            type: Boolean,
+                            value: false,
+                            observer: "_signedInChanged"
+                        }
+                    }
+                };
+            }
+            connectedCallback() {
+                super.connectedCallback();
+                requestAnimationFrame(this._installListeners.bind(this));
+            }
+            _installListeners() {
+                window.addEventListener('signout', this._onSignOut.bind(this));
+            }
+            _signedInChanged() {
+                this.$.authElement.fire('auth-changed', {
+                    user: this.signedIn ? this.user : undefined
+                });
+            }
+            _onSignOut() {
+               var loginFire = this.shadowRoot.querySelector("login-fire");
+               loginFire.shadowRoot.querySelector('#socialLogin').signOut();
+               loginFire.shadowRoot.querySelector('#emailLogin').signOut();
+            }
+        }
+        customElements.define(AppLogin.is, AppLogin);
+    </script>
+</dom-module>
