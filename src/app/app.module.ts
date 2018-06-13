@@ -1,12 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { MatToolbarModule } from '@angular/material';
 
+// configs
 import { environment } from '../environments/environment.prod';
+
+// components
 import { AppComponent } from './app.component';
 
+// services
 import { AuthService } from './auth.service';
 
 @NgModule({
@@ -15,9 +21,13 @@ import { AuthService } from './auth.service';
   ],
   imports: [
     BrowserModule,
-    AngularFireAuthModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    //angular material
+    MatToolbarModule
+
   ],
   providers: [
     AuthService

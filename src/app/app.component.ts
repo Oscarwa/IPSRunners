@@ -10,12 +10,12 @@ export class AppComponent {
   title = 'app';
   auth;
 
-  constructor() {
-    //this.auth = fAuth;
+  constructor(auth: AuthService) {
+    this.auth = auth;
   }
 
   login() {
-    //this.auth.login();
+    this.auth.login();
   }
 
 }
