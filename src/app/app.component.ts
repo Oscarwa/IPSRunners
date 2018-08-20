@@ -12,10 +12,19 @@ export class AppComponent {
 
   constructor(auth: AuthService) {
     this.auth = auth;
+    this.login();
   }
 
   login() {
     this.auth.login();
+    //this.auth.currentUser.subscribe((e) => { console.log(e)})
+
+  }
+
+  logout() {
+    this.auth.logout();
+    //this.auth.currentUser.subscribe((e) => { console.log(e)})
+    
   }
 
 }

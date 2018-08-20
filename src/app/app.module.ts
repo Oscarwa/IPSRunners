@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 // configs
 import { environment } from '../environments/environment.prod';
@@ -26,8 +26,10 @@ import { AuthService } from './auth.service';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     //angular material
-    MatToolbarModule
-
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [
     AuthService
