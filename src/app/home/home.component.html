@@ -1,5 +1,31 @@
-<ul>
-  <li *ngFor="let news of newsList | async">
-    <span>{{news.name}}</span>
-  </li>
-</ul>
+  <div *ngFor="let news of newsList | async" class="news-container">
+    <mat-card class="news-card">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <i class="material-icons">
+            directions_run
+          </i>
+        </div>
+        <mat-card-title>{{news.event}}</mat-card-title>
+        <mat-card-subtitle>{{news.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <p>
+          Fecha: {{news.date}}
+        </p>
+        <p>
+          Lugar: {{news.route}}
+        </p>
+        <p>
+          Costo: {{news.price}}
+        </p>
+        <p>
+          Distancias: {{news.distances}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="accent" *ngIf="news.status === 'open'">INSCRIBIRME</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

@@ -1,0 +1,10 @@
+.news-container {
+    text-align: center;
+    width: 100%;
+}
+
+.news-card {
+    width: 50%;
+    text-align: left;
+    margin: 10px auto;
+}

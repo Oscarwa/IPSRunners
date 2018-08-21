@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.newsList = this.eventService.getAll();//.subscribe((e) => this.news = e);
+    this.newsList = this.newsService.getAll();//.subscribe((e) => this.news = e);
   }
 
 }

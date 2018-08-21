@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule } from '@angular/material';
 
 // configs
 import { environment } from '../environments/environment.prod';
@@ -18,11 +18,13 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth.service';
 import { NewsService } from './news.service';
 import { EventService } from './event.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { EventService } from './event.service';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatCardModule,
     AppRoutingModule
   ],
   providers: [
