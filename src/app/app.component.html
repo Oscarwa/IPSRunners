@@ -5,20 +5,23 @@
   <!-- This fills the remaining space of the current row -->
   <span class="spacer"></span>
   <div>
-    <mat-menu *ngIf="auth.currentUser" #appMenu="matMenu">
+    <mat-menu *ngIf="user" #appMenu="matMenu">
       <button mat-menu-item>Settings</button>
       <button mat-menu-item>Help</button>
     </mat-menu>
-    <button mat-icon-button *ngIf="auth.currentUser" (click)="logout()">
+    <button mat-icon-button *ngIf="user" (click)="logout()">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <span>{{auth.currentUser.displayName}}</span>
+    <span *ngIf="user">{{user.displayName}}</span>
     <!-- <button mat-icon-button>
       <mat-icon>home</mat-icon>
     </button> -->
   </div>
-  <div *ngIf="!auth.currentUser">
+  <div *ngIf="!user">
     <button mat-button (click)="login()">Login</button>
   </div>
 </mat-toolbar>
 
+<main role="main">
+  <router-outlet></router-outlet>
+</main>

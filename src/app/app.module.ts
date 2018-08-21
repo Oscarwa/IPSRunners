@@ -8,16 +8,21 @@ import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule } from 
 
 // configs
 import { environment } from '../environments/environment.prod';
+import { AppRoutingModule } from './app-routing.module';
 
 // components
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 // services
 import { AuthService } from './auth.service';
+import { NewsService } from './news.service';
+import { EventService } from './event.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +34,13 @@ import { AuthService } from './auth.service';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    NewsService,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,17 +7,18 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  user;
   title = 'app';
   auth;
 
   constructor(auth: AuthService) {
     this.auth = auth;
-    this.login();
+    //this.login();
+    this.auth.currentUser.subscribe((e) => { this.user = e; console.log(e)})
   }
 
   login() {
     this.auth.login();
-    //this.auth.currentUser.subscribe((e) => { console.log(e)})
 
   }
 
