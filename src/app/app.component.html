@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
-  <span>IPS Runners</span>
+  <a [routerLink]="['/home']">IPS Runners</a>
 
   <!-- This fills the remaining space of the current row -->
   <span class="spacer"></span>
@@ -9,7 +9,7 @@
       <button mat-menu-item>Settings</button>
       <button mat-menu-item>Help</button>
     </mat-menu>
-    <button mat-icon-button *ngIf="user" (click)="logout()">
+    <button mat-icon-button *ngIf="user" [routerLink]="['/profile']">
       <mat-icon>account_circle</mat-icon>
     </button>
     <span *ngIf="user">{{user.displayName}}</span>

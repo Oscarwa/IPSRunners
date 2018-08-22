@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class AppComponent {
   title = 'app';
   auth;
 
-  constructor(auth: AuthService) {
+  constructor(
+    private auth: AuthService,
+  ) {
     this.auth = auth;
     //this.login();
     this.auth.currentUser.subscribe((e) => { this.user = e; console.log(e)})
