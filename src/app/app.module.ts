@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 // configs
 import { environment } from '../environments/environment.prod';
@@ -13,18 +14,21 @@ import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // services
 import { AuthService } from './auth.service';
 import { NewsService } from './news.service';
 import { EventService } from './event.service';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileService } from './profile.service';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -32,18 +36,24 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    FormsModule,
     //angular material
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
     AppRoutingModule
   ],
   providers: [
     AuthService,
     NewsService,
-    EventService
+    EventService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

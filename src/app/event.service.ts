@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { Event } from './event';
+import { Event } from './models/event';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()

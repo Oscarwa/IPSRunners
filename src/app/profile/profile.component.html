@@ -1,3 +1,31 @@
-<p>
-  profile works!
-</p>
+
+  <form >
+<mat-card >
+    <mat-form-field >
+      <input matInput placeholder="Nombre" name="firstName" [(ngModel)]="profile.firstName" value="">
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput placeholder="Apellido(s)" name="lastName" [(ngModel)]="profile.lastName" value="">
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput type="text" placeholder="Apodo" value="" name="nick" [(ngModel)]="profile.nick">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" name="dob" [(ngModel)]="profile.dob" >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput type="tel" placeholder="Celular" value="" name="phone" [(ngModel)]="profile.phone">
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput type="text" placeholder="Talla" value="" name="size" [(ngModel)]="profile.size">
+    </mat-form-field>
+    <div class="align-right">
+  
+      <button mat-fab (click)="save()">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</form>

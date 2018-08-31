@@ -25,7 +25,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="accent" *ngIf="news.status === 'open'">INSCRIBIRME</button>
+        <button mat-button color="accent" [routerLink]="['/event', news.$key]" *ngIf="news.status === 'open'">INSCRIBIRME</button>
       </mat-card-actions>
     </mat-card>
   </div>

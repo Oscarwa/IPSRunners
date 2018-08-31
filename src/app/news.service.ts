@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { News } from './news';
+import { News } from './models/news';
 import 'rxjs/Rx';
 import { AngularFireDatabase } from 'angularfire2/database';
 

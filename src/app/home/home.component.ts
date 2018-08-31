@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
 import { Observable } from 'rxjs/Observable';
-import { News } from '../news';
+import { News } from '../models/news';
 import { AuthService } from '../auth.service';
 import { EventService } from '../event.service';
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.newsList = this.newsService.getAll();//.subscribe((e) => this.news = e);
+    this.newsList = this.newsService.getAllPlus();//.subscribe((e) => this.news = e);
   }
 
 }
