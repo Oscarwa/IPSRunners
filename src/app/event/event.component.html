@@ -1,3 +1,42 @@
-<p>
-  event works!
-</p>
+<mat-card class="event-card">
+  <mat-card-header>
+    <div mat-card-avatar class="event-header-image"></div>
+    <mat-card-title>{{ event.name }}</mat-card-title>
+    <mat-card-subtitle>{{ event.date }} <i>{{ relativeTime }}</i></mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../assets/RF2018.png" alt="Photo of a Shiba Inu">
+  <mat-card-content >
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+            Fecha: {{event.date}}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            Lugar: {{event.route}}
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            Costo: {{event.price}}
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            Distancias: {{event.distances}}
+          </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          Tu inscripcion
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <mat-form-field>
+              <mat-select placeholder="Distancia">
+                <mat-option *ngFor="let dist of distances" [value]="dist">
+                  {{dist}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </mat-list-item>
+      </mat-list>
+  </mat-card-content>
+  <mat-card-actions class="align-right">
+    <button mat-fab (click)="save()">
+      <mat-icon>assignment_turned_in</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

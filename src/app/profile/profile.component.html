@@ -11,7 +11,7 @@
       <input matInput type="text" placeholder="Apodo" value="" name="nick" [(ngModel)]="profile.nick">
     </mat-form-field>
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" name="dob" [(ngModel)]="profile.dob" >
+      <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" name="dob" [(ngModel)]="_dob" >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

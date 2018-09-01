@@ -1,4 +1,4 @@
-  <div *ngFor="let news of newsList | async" class="news-container">
+  <div *ngFor="let news of eventList | async" class="news-container">
     <mat-card class="news-card">
       <mat-card-header>
         <div mat-card-avatar>
@@ -20,12 +20,12 @@
         <p>
           Costo: {{news.price}}
         </p>
-        <p>
-          Distancias: {{news.distances}}
-        </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="accent" [routerLink]="['/event', news.$key]" *ngIf="news.status === 'open'">INSCRIBIRME</button>
+        <button mat-button color="accent" [routerLink]="['/event', news.$key]" *ngIf="news.status">INSCRIBIRME</button>
       </mat-card-actions>
     </mat-card>
   </div>
+  <button mat-fab *ngIf="profile ? profile.admin : false" (click)="createEvent()">
+    <mat-icon>add</mat-icon>
+  </button>

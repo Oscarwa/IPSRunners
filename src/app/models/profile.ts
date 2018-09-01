@@ -5,7 +5,8 @@ export class Profile {
         public lastName: string,
         public phone: string,
         public dob: string,
-        public nickname: string,
-        public size: string
+        public nick: string,
+        public size: string,
+        public admin: boolean
     ) { }
 }

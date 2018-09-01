@@ -11,7 +11,7 @@ import { Profile } from './models/profile';
 @Injectable()
 export class AuthService {
   currentUser: Observable<User>;
-  public profile: Profile;
+  public profile;
   constructor(
     public afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
@@ -22,17 +22,21 @@ export class AuthService {
 
     afAuth.authState.subscribe(
       (e) => { 
-        //this.profile = e; 
-        this.profile = new Profile(e.uid, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','');
-        console.log(this.profile)
+        this.profile = new Profile(e.uid, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','', false);
         // search if uid exists in profile document
         this.db.object('/profiles/' + e.uid).valueChanges().subscribe((p) => {
           if(!p) {
             this.router.navigate(['profile']);
+          } else {
+            this.profile = p;
           }
         })
       }
     );
+  }
+
+  Profile(): Observable<Profile> {
+    return Observable.of(this.profile);
   }
 
   login() {
