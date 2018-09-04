@@ -17,4 +17,7 @@ export class ProfileService {
     this.db.object('/profiles/' + profile.uid).set(profile);
   }
 
+  registerRace(profileId, raceId) {
+    this.db.object('/profiles/' + profileId + '/races/' + raceId).set({registered: true});
+  }
 }

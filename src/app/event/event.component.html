@@ -25,8 +25,8 @@
         </mat-list-item>
         <mat-list-item role="listitem">
             <mat-form-field>
-              <mat-select placeholder="Distancia">
-                <mat-option *ngFor="let dist of distances" [value]="dist">
+              <mat-select placeholder="Distancia" [(ngModel)]="choosenDistance"  name="choosenDistance">
+                <mat-option *ngFor="let dist of event.distanceList" [value]="dist">
                   {{dist}}
                 </mat-option>
               </mat-select>
@@ -35,7 +35,7 @@
       </mat-list>
   </mat-card-content>
   <mat-card-actions class="align-right">
-    <button mat-fab (click)="save()">
+    <button mat-fab (click)="register(choosenDistance)">
       <mat-icon>assignment_turned_in</mat-icon>
     </button>
   </mat-card-actions>

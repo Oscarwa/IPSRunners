@@ -22,7 +22,7 @@ export class AuthService {
 
     afAuth.authState.subscribe(
       (e) => { 
-        this.profile = new Profile(e.uid, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','', false);
+        this.profile = new Profile(e.uid, e.email, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','', false);
         // search if uid exists in profile document
         this.db.object('/profiles/' + e.uid).valueChanges().subscribe((p) => {
           if(!p) {

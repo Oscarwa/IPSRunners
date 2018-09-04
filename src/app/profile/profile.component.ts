@@ -11,7 +11,7 @@ import * as moment from 'moment';
 })
 export class ProfileComponent implements OnInit {
 
-  profile: Profile = new Profile ('', '', '', '', '', '', '', false);
+  profile: Profile = new Profile ('', '', '', '', '', '', '', '', false);
 
   constructor(
     private authService: AuthService,
@@ -23,16 +23,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.authService.currentUser.subscribe(() => {
       this.profile = this.authService.profile;
-      debugger;
-      this._dob = new Date(moment(this.profile.dob, 'DD/MM/YYYY').format("MM/DD/YYYY"));
+      this._dob = new Date(this.profile.dob);
       console.log(this.profile)
     })
     //this.profile = this.authService.profile || this.profile;
   }
 
   save() {
-    debugger;
-    this.profile.dob = moment(this._dob).format("DD/MM/YYYY")
+    this.profile.dob = moment(this._dob).format()
     this.profileService.saveProfile(this.profile);
   }
 
