@@ -34,8 +34,12 @@ export class EventService {
     this.db.list<Event>('events').push(event);
   }
 
-  addParticipant(participant) {
+  addParticipant(participant) : void {
     this.db.object<Event>('events/' + participant.event.uid + '/participants/' + participant.user.uid).set(participant);
+  }
+
+  getParticipantData(eventId, uid): any {
+    return this.db.object('events/' + eventId + '/participants/' + uid).valueChanges();
   }
 
 }

@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
     this.authService.currentUser.subscribe(() => {
       this.profile = this.authService.profile;
       this._dob = new Date(this.profile.dob);
-      console.log(this.profile)
     })
     //this.profile = this.authService.profile || this.profile;
   }

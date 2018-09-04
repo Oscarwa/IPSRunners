@@ -18,7 +18,7 @@ export class AuthService {
     private router: Router,
   ) {
     
-    this.currentUser = afAuth.authState;//.subscribe((e) => { this.currentUser = e; console.log(e); });
+    this.currentUser = afAuth.authState;
 
     afAuth.authState.subscribe(
       (e) => { 

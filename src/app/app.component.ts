@@ -16,7 +16,7 @@ export class AppComponent {
   ) {
     this.auth = auth;
     //this.login();
-    this.auth.currentUser.subscribe((e) => { this.user = e; console.log(e)})
+    this.auth.currentUser.subscribe((e) => { this.user = e;})
   }
 
   login() {
@@ -25,9 +25,7 @@ export class AppComponent {
   }
 
   logout() {
-    this.auth.logout();
-    //this.auth.currentUser.subscribe((e) => { console.log(e)})
-    
+    this.auth.logout();    
   }
 
 }

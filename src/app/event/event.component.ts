@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { Event } from '../models/event';
 import { AuthService } from '../auth.service';
 import { ProfileService } from '../profile.service';
+import { MatTableDataSource } from '@angular/material';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { ProfileService } from '../profile.service';
 export class EventComponent implements OnInit {
 
   eventId;
-  event: Event = new Event('','','','',[],'',true,'',[]);
+  event: Event = new Event('','','','',[],'',true,'', []);
   relativeTime;
   choosenDistance;
 
@@ -34,6 +35,9 @@ export class EventComponent implements OnInit {
    }
 
   registration: any = {};
+  registeredAlready = false;
+  participantSource;
+  displayedColumns: string[] = ['email', 'name', 'distance', 'phone'];
 
   ngOnInit() {
   }
@@ -42,7 +46,16 @@ export class EventComponent implements OnInit {
     this.eventId = eventId;
     this.eventService.getById(eventId).subscribe(e => {
       this.event = e; 
+      this.eventService.getParticipantData(eventId, this.authService.profile.uid).subscribe((data) => {
+        this.choosenDistance = data.distance;
+        this.registeredAlready = true;
+      });
       this.relativeTime = moment(e.date, 'DD/MM/YYYY').startOf('day').fromNow();
+
+      let tmpArray = Object.keys(e.participants).map((key) => {
+        return e.participants[key];
+      });
+      this.participantSource = new MatTableDataSource(tmpArray);
     });
   }
 
@@ -54,8 +67,9 @@ export class EventComponent implements OnInit {
     this.registration.distance = this.choosenDistance;
     this.eventService.addParticipant(this.registration);
     this.profileService.registerRace(this.registration.user.uid, this.eventId);
-    console.info(this.registration);
-    console.info(dist);
+    this.registeredAlready = true;
+    //console.info(this.registration);
+    //console.info(dist);
   }
 
 }

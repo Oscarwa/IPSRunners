@@ -7,7 +7,7 @@ export class Event {
         public distanceList: Array<string>,
         public route: string,
         public status: boolean,
-        public description: string
-        
+        public description: string,
+        public participants: Array<string>
     ) { }
 }

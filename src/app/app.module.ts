@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDividerModule, MatSelectModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDividerModule, MatSelectModule, MatListModule, MatTableModule } from '@angular/material';
 
 // configs
 import { environment } from '../environments/environment.prod';
@@ -49,6 +49,7 @@ import { EventComponent } from './event/event.component';
     MatDividerModule,
     MatSelectModule,
     MatListModule,
+    MatTableModule,
 
     AppRoutingModule
   ],
