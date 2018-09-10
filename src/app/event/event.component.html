@@ -4,7 +4,7 @@
     <mat-card-title>{{ event.name }}</mat-card-title>
     <mat-card-subtitle>{{ event.date }} <i>{{ relativeTime }}</i></mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="../../assets/RF2018.png" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="event.imageSrc" alt="Event photo">
   <mat-card-content >
       <mat-list role="list">
         <mat-list-item role="listitem">
@@ -54,6 +54,11 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.user.firstName}} {{element.user.lastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> Genero </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.user.gender}} </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
 
   createEvent() {
-    let ev = new Event('NombreDeCarrera','DD/MM/AAAA','300',"5K, 10K",["5K", "10K"],"Fundidora",true,"La carrera mas esperada del año",[]);
+    let ev = new Event('NombreDeCarrera','DD/MM/AAAA','300',"5K, 10K",["5K", "10K"],"Fundidora",true,"La carrera mas esperada del año", '', []);
     debugger;
     this.eventService.create(ev);
   }

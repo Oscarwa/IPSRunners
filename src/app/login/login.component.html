@@ -1,0 +1,13 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!loaded" mat-button color="primary" (click)="login()">Iniciar sesión</button>
+    <button *ngIf="loaded" mat-button color="primary" [routerLink]="['/home']">Continuar como {{user.displayName}}</button>
+  </mat-card-actions>
+</mat-card>

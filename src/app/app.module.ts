@@ -5,7 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDividerModule, MatSelectModule, MatListModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatCardModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDividerModule, MatSelectModule, MatListModule, MatTableModule, MatRadioModule } from '@angular/material';
 
 // configs
 import { environment } from '../environments/environment.prod';
@@ -22,13 +22,15 @@ import { NewsService } from './news.service';
 import { EventService } from './event.service';
 import { ProfileService } from './profile.service';
 import { EventComponent } from './event/event.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    EventComponent
+    EventComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { EventComponent } from './event/event.component';
     MatSelectModule,
     MatListModule,
     MatTableModule,
+    MatRadioModule,
 
     AppRoutingModule
   ],

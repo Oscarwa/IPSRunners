@@ -7,6 +7,13 @@
     <mat-form-field >
       <input matInput placeholder="Apellido(s)" name="lastName" [(ngModel)]="profile.lastName" value="">
     </mat-form-field>
+    <p>
+
+      <mat-radio-group [(ngModel)]="profile.gender" name="gender">
+        <mat-radio-button value="F">Femenino</mat-radio-button>
+        <mat-radio-button value="M">Masculino</mat-radio-button>
+      </mat-radio-group>
+    </p>
     <mat-form-field >
       <input matInput type="text" placeholder="Apodo" value="" name="nick" [(ngModel)]="profile.nick">
     </mat-form-field>

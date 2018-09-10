@@ -17,7 +17,7 @@ import { MatTableDataSource } from '@angular/material';
 export class EventComponent implements OnInit {
 
   eventId;
-  event: Event = new Event('','','','',[],'',true,'', []);
+  event: Event = new Event('','','','',[],'',true,'', '', []);
   relativeTime;
   choosenDistance;
 
@@ -37,7 +37,7 @@ export class EventComponent implements OnInit {
   registration: any = {};
   registeredAlready = false;
   participantSource;
-  displayedColumns: string[] = ['email', 'name', 'distance', 'phone'];
+  displayedColumns: string[] = ['email', 'name', 'gender', 'distance', 'phone'];
 
   ngOnInit() {
   }
@@ -47,8 +47,10 @@ export class EventComponent implements OnInit {
     this.eventService.getById(eventId).subscribe(e => {
       this.event = e; 
       this.eventService.getParticipantData(eventId, this.authService.profile.uid).subscribe((data) => {
-        this.choosenDistance = data.distance;
-        this.registeredAlready = true;
+        if(!!data) {
+          this.choosenDistance = data.distance;
+          this.registeredAlready = true;
+        }
       });
       this.relativeTime = moment(e.date, 'DD/MM/YYYY').startOf('day').fromNow();
 

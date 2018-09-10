@@ -8,6 +8,7 @@ export class Profile {
         public dob: string,
         public nick: string,
         public size: string,
-        public admin: boolean
+        public gender: string,
+        public admin: boolean,
     ) { }
 }

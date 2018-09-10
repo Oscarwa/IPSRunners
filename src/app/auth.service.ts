@@ -12,6 +12,7 @@ import { Profile } from './models/profile';
 export class AuthService {
   currentUser: Observable<User>;
   public profile;
+
   constructor(
     public afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
@@ -22,15 +23,20 @@ export class AuthService {
 
     afAuth.authState.subscribe(
       (e) => { 
-        this.profile = new Profile(e.uid, e.email, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','', false);
-        // search if uid exists in profile document
-        this.db.object('/profiles/' + e.uid).valueChanges().subscribe((p) => {
-          if(!p) {
-            this.router.navigate(['profile']);
-          } else {
-            this.profile = p;
-          }
-        })
+        //debugger;
+        if(!!e) {
+          this.profile = new Profile(e.uid, e.email, e.displayName.split(' ')[0], e.displayName.split(' ')[1], '','','','', '', false);
+          // search if uid exists in profile document
+          this.db.object('/profiles/' + e.uid).valueChanges().subscribe((p) => {
+            if(!p) {
+              this.router.navigate(['profile']);
+            } else {
+              this.profile = p;
+            }
+          });
+        } else {
+          this.router.navigate(['login']);
+        }
       }
     );
   }
@@ -48,5 +54,6 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut();
     this.currentUser = null;
+    this.profile = null;
   }
 }

@@ -12,14 +12,14 @@
     <button mat-icon-button *ngIf="user" [routerLink]="['/profile']">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <span *ngIf="user">{{user.displayName}}</span>
+    <span *ngIf="user" [routerLink]="['/profile']">{{user.displayName}}</span>
     <!-- <button mat-icon-button>
       <mat-icon>home</mat-icon>
     </button> -->
   </div>
-  <div *ngIf="!user">
+  <!-- <div *ngIf="!user">
     <button mat-button (click)="login()">Login</button>
-  </div>
+  </div> -->
 </mat-toolbar>
 
 <main role="main">
